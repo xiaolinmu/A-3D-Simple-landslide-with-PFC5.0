@@ -4,7 +4,8 @@ The simulation results are as follows:
 
 Example 1:
 
-![test](https://github.com/xiaolinmu/A-3D-Simple-landslide-with-PFC5.0/assets/86880374/192e1338-8098-49ae-baeb-6c70803a6667)
+![test](https://github.com/xiaolinmu/A-3D-Simple-landslide-with-PFC5.0/assets/86880374/65ea95ee-2805-44a1-9e58-ff4b5f8d6ba2)
+
 
 
 

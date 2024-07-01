@@ -1,5 +1,5 @@
 # A-3D-Simple-landslide-with-PFC5.0
-Referring to Luo Weitao's paper named accumulation properties of baeeier body, a 3Dnumerical simulation is conducted with PFC5.0. 
+Referring to Luo Weitao's paper named accumulation properties of barrier bodies, a 3D numerical simulation is conducted with PFC5.0. 
 The simulation results are as follows:
 
 Example 1:

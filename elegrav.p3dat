@@ -1,0 +1,16 @@
+restore elemade1
+
+ball attribute density 2650 damp 0.05
+
+cmat default type ball-ball ...
+            model linear ...
+            property kn 1e5 ks 1e5 dp_nratio 0.2 dp_sratio 0.2 fric 0.5773
+
+cmat default type ball-facet ...
+            model linear ...
+            property kn 1e5 ks 1e5 dp_nratio 0.2 dp_sratio 0.2 fric 0.5773
+
+set gravity 9.81
+solve aratio 1e-3
+
+save elegrav1

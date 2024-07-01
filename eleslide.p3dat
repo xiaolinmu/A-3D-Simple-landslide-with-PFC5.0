@@ -1,0 +1,86 @@
+restore elegrav1
+
+;计算各级配颗粒的平均位置
+def posagv
+    global xm1_sum = 0
+    global xm2_sum = 0
+    global xm3_sum = 0
+    global ym1_sum = 0
+    global ym2_sum = 0
+    global ym3_sum = 0
+    global zm1_sum = 0
+    global zm2_sum = 0
+    global zm3_sum = 0
+    global m1_sum = 0
+    global m2_sum = 0
+    global m3_sum = 0
+    loop foreach ball ball.list
+        if ball.isgroup(ball,"smallball")
+            xm1_sum = xm1_sum + ball.pos.x(ball)*ball.mass(ball)
+            ym1_sum = ym1_sum + ball.pos.y(ball)*ball.mass(ball)
+            zm1_sum = zm1_sum + ball.pos.z(ball)*ball.mass(ball)
+            m1_sum = m1_sum + ball.mass(ball)
+        else
+            if ball.isgroup(ball,"mediumball")
+                xm2_sum = xm2_sum + ball.pos.x(ball)*ball.mass(ball)
+                ym2_sum = ym2_sum + ball.pos.y(ball)*ball.mass(ball)
+                zm2_sum = zm2_sum + ball.pos.z(ball)*ball.mass(ball)
+                m2_sum = m2_sum + ball.mass(ball)
+            else
+                if ball.isgroup(ball,"largeball")
+                    xm3_sum = xm3_sum + ball.pos.x(ball)*ball.mass(ball)
+                    ym3_sum = ym3_sum + ball.pos.y(ball)*ball.mass(ball)
+                    zm3_sum = zm3_sum + ball.pos.z(ball)*ball.mass(ball)
+                    m3_sum = m3_sum + ball.mass(ball)
+                endif
+            endif
+        endif
+    endloop
+    xm1 = xm1_sum/m1_sum
+    xm2 = xm2_sum/m2_sum
+    xm3 = xm3_sum/m3_sum
+    ym1 = ym1_sum/m1_sum
+    ym2 = ym2_sum/m2_sum
+    ym3 = ym3_sum/m3_sum
+    zm1 = zm1_sum/m1_sum
+    zm2 = zm2_sum/m2_sum
+    zm3 = zm3_sum/m3_sum
+end
+@posagv
+
+def makeMovie(dur,inc,name)
+  i = 0
+  curv = inc
+  dur = dur
+  namefile = name
+  loop while (curv <= dur)
+    i = i + 1
+    local fname = string.build('%1_%2.png',name,i)
+    command
+      ball result load time [curv] nothrow on
+      plot bitmap filename @fname
+    endcommand
+    curv = curv + inc
+  endloop    
+end
+;def wallid
+;    loop foreach wall wall.list
+;        io.out(wall.id(wall))
+;    endloop
+;end 
+;@wallid
+
+;facet active
+wall activeside neither range id 11 12
+
+set timestep auto
+set mech age 0.0
+ball result time 0.02 addattribute group addattribute velocity activate
+;solve aratio 1e-3
+solve time 3.0
+save final1
+
+@makeMovie(3.0,0.02,test)
+
+return
+

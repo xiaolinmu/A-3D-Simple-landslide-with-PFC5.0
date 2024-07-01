@@ -6,9 +6,17 @@ Example 1:
 
 ![test](https://github.com/xiaolinmu/A-3D-Simple-landslide-with-PFC5.0/assets/86880374/192e1338-8098-49ae-baeb-6c70803a6667)
 
+
+
+
 Example 2:
 
 ![test](https://github.com/xiaolinmu/A-3D-Simple-landslide-with-PFC5.0/assets/86880374/f33e89f4-b98b-4dfa-b8a1-d49738aaa898)
+
+
+
+
+
 
 Example 3:
 
